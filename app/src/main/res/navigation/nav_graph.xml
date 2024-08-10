@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/movieListFragment">
+
+    <fragment
+        android:id="@+id/movieListFragment"
+        android:name="com.example.atlysassignment.ui.fragment.MovieListFragment"
+        android:label="MovieListFragment" >
+        <action
+            android:id="@+id/action_movieListFragment_to_searchMovieFragment"
+            app:destination="@id/searchMovieFragment" />
+        <action
+            android:id="@+id/action_movieListFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchMovieFragment"
+        android:name="com.example.atlysassignment.ui.fragment.SearchMovieFragment"
+        android:label="SearchMovieFragment" >
+        <action
+            android:id="@+id/action_searchMovieFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment"
+            app:popUpTo="@id/movieListFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.example.atlysassignment.ui.fragment.MovieDetailFragment"
+        android:label="MovieDetailFragment">
+        <argument
+            android:name="movieModel"
+            app:argType="com.example.atlysassignment.model.MovieModel"
+            app:nullable="false" />
+
+    </fragment>
+</navigation>
