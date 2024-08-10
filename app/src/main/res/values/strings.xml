@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">AtlysAssignment</string>
     <string name="search">Search movies</string>
+    <string name="error_message">OOPS.! Can\'t fetch data right now!</string>
 </resources>

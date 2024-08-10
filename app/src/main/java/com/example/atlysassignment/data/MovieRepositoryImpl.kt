@@ -6,6 +6,7 @@ import com.example.atlysassignment.data.remote.response.TrendingMovieResponse
 import com.example.atlysassignment.domain.MovieRepository
 import com.example.atlysassignment.model.MovieModel
 import com.example.atlysassignment.utils.mapToMovieModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onStart

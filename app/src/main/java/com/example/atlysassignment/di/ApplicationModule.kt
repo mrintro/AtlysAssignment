@@ -82,7 +82,7 @@ class ApplicationModule {
     private fun createAuthInterceptor(resources: Resources): Interceptor {
         return Interceptor { chain ->
             val request = chain.request().newBuilder()
-                .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MDZlYTZkMGJiMWEzOTQxZmQ4NTYwYTA2NWNkYzViMyIsIm5iZiI6MTcyMzIxNDI2My40NjMwMTcsInN1YiI6IjYyMTkzZWU2MzgzZGYyMDAxZDg1ZjdiZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.C349gU-T4QCCZU12TEPH8LgdcbRI9FE_R0FzqPYhmaY")
+                .addHeader("Authorization", "Bearer ${AppConstant.API_KEY}")
                 .build()
             val response = chain.proceed(request)
             response

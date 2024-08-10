@@ -25,6 +25,7 @@ class SearchMovieViewModel @Inject constructor(
 
     fun searchMovie(searchQuery: String) {
         viewModelScope.launch {
+            _movieListViewState.value = MovieListViewState.Loading
             withContext(Dispatchers.IO) {
                 repository.searchMovie(searchQuery)
                     .map {
