@@ -10,6 +10,10 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
+import com.example.atlysassignment.R
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -32,6 +36,29 @@ private val LightColorScheme = lightColorScheme(
     onSurface = Color(0xFF1C1B1F),
     */
 )
+
+val PrimaryTextStyle by lazy {
+    TextStyle(
+        fontSize = 16.sp,
+        color = TextColor
+    )
+}
+
+val HeadingStyle by lazy {
+    TextStyle(
+        fontSize = 24.sp,
+        color = TextColor,
+        fontWeight = FontWeight.Bold
+    )
+}
+
+val HeadingSmallStyle by lazy {
+    TextStyle(
+        fontSize = 24.sp,
+        color = TextColor,
+        fontWeight = FontWeight.SemiBold
+    )
+}
 
 @Composable
 fun AtlysAssignmentTheme(

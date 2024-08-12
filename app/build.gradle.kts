@@ -89,8 +89,13 @@ dependencies {
     implementation(libs.picasso)
     implementation(libs.picasso.transformations)
     implementation(libs.converter.gson)
-    implementation("com.google.code.gson:gson:2.9.1")
+    implementation(libs.gson)
 
+    implementation(libs.androidx.navigation.compose)
 
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.runtime.livedata)
+    implementation(libs.coil.compose)
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0-alpha03")
 
 }

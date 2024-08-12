@@ -56,7 +56,6 @@ class ApplicationModule {
             .addConverterFactory(
                 MoshiConverterFactory.create(moshi)
             )
-//            .addConverterFactory(GsonConverterFactory.create(Gson()))
             .client(okHttpClient)
             .build()
     }

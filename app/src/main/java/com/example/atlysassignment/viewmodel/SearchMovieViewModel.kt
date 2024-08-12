@@ -10,6 +10,11 @@ import com.example.atlysassignment.model.MovieModel
 import com.example.atlysassignment.utils.getMovieModelList
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filterNot
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -22,6 +27,27 @@ class SearchMovieViewModel @Inject constructor(
 
     private val _movieListViewState = MutableLiveData<MovieListViewState>()
     val movieListViewState: LiveData<MovieListViewState> = _movieListViewState
+
+    private val _searchQueryFlow = MutableStateFlow<String>("")
+
+    init {
+        initializeSearchQuery()
+    }
+
+    @OptIn(FlowPreview::class)
+    private fun initializeSearchQuery() {
+        viewModelScope.launch {
+            _searchQueryFlow
+                .debounce(
+                    500
+                ).filterNot { it.isEmpty() }
+                .distinctUntilChanged()
+                .collect {
+                    searchMovie(it)
+                }
+        }
+    }
+
 
     fun searchMovie(searchQuery: String) {
         viewModelScope.launch {
@@ -44,6 +70,12 @@ class SearchMovieViewModel @Inject constructor(
         }, {
             MovieListViewState.Error
         })
+    }
+
+    fun debounceAndSearch(it: String) {
+        viewModelScope.launch {
+            _searchQueryFlow.emit(it)
+        }
     }
 
 

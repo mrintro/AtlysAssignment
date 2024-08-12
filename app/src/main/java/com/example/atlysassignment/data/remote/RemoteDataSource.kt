@@ -1,10 +1,9 @@
 package com.example.atlysassignment.data.remote
 
 import com.example.atlysassignment.data.MovieService
+import com.example.atlysassignment.data.remote.response.MovieResponse
 import com.example.atlysassignment.data.remote.response.SearchMovieResponse
 import com.example.atlysassignment.data.remote.response.TrendingMovieResponse
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
 import javax.inject.Inject
 
 class RemoteDataSource @Inject constructor(
@@ -22,6 +21,15 @@ class RemoteDataSource @Inject constructor(
         try {
             Result.success(
                 service.searchMoveiQuery(searchQuery)
+            )
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+
+    suspend fun getMovieFromId(id: String): Result<MovieResponse> =
+        try {
+            Result.success(
+                service.getMovieFromId(id)
             )
         } catch (e: Exception) {
             Result.failure(e)

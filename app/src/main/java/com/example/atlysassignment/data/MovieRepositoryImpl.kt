@@ -1,6 +1,7 @@
 package com.example.atlysassignment.data
 
 import com.example.atlysassignment.data.remote.RemoteDataSource
+import com.example.atlysassignment.data.remote.response.MovieResponse
 import com.example.atlysassignment.data.remote.response.SearchMovieResponse
 import com.example.atlysassignment.data.remote.response.TrendingMovieResponse
 import com.example.atlysassignment.domain.MovieRepository
@@ -21,5 +22,9 @@ class MovieRepositoryImpl @Inject constructor(
 
     override fun searchMovie(searchQuery: String): Flow<Result<SearchMovieResponse>> = flow {
         emit(remoteDataSource.searchMovieQuery(searchQuery))
+    }
+
+    override fun getMovieFromId(id: String): Flow<Result<MovieResponse>> = flow {
+        emit(remoteDataSource.getMovieFromId(id))
     }
 }
