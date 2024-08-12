@@ -1,12 +1,10 @@
 package com.example.atlysassignment.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.atlysassignment.data.remote.response.MovieResponse
-import com.example.atlysassignment.data.remote.response.TrendingMovieResponse
 import com.example.atlysassignment.domain.MovieRepository
 import com.example.atlysassignment.model.MovieModel
 import com.example.atlysassignment.utils.getMovieModelList
@@ -25,10 +23,6 @@ class MovieDetailViewModel @Inject constructor(
 
     private val _movieState = MutableLiveData<MovieState>(MovieState.Loading)
     val movieState: LiveData<MovieState> = _movieState
-
-    init {
-        Log.d("Aniket", "INIT Detail viewmodel")
-    }
     
     fun getMovieFromId(id: String) {
         viewModelScope.launch {

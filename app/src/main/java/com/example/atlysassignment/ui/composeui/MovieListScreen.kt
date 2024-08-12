@@ -25,7 +25,6 @@ fun MovieListScreen(navController: NavHostController, movieListViewModel: MovieL
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
-        Log.d("Aniket check logs", state.toString())
         SearchBox(
             {
                 isSearchBarActive = it

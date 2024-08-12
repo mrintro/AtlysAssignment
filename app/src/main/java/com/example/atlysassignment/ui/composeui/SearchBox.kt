@@ -38,7 +38,6 @@ fun SearchBox(
             onSearchQuery(it)
         },
         onSearch = {
-            Log.d("Aniket", "onSearch called")
         },
         active = isActive,
         onActiveChange = {

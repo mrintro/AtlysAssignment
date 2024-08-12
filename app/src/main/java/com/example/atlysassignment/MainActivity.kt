@@ -38,18 +38,3 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun TextComponent() {
-    Text(text = "ANIKET")
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    AtlysAssignmentTheme {
-        TextComponent()
-    }
-
-}
-
